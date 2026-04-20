@@ -1058,24 +1058,29 @@
         .security-badge {
   display: inline-flex;
   align-items: center;
-  gap: 4px; /* Espaço entre ícone e texto */
+  gap: 3px;           /* Reduzi o espaço para acompanhar a escala menor */
   background: #f0fdf4;
   color: #16a34a;
-  padding: 0 8px;
-  height: 18px; /* Mantendo a finura */
+  padding: 0 7px;     /* Padding lateral mais sutil */
+  height: 16px;       /* Reduzi de 18px para 16px para ser "mais fino" */
   border-radius: 100px;
   font-size: 0.65rem;
   font-weight: 700;
-  line-height: 1;
+  white-space: nowrap;
 }
 
-/* Garante que o ícone escale perfeitamente */
 .security-badge svg {
-  width: 10px;  /* Proporcional ao font-size de 0.65rem */
-  height: 10px;
-  flex-shrink: 0; /* Impede o ícone de achatar */
-  stroke-width: 2.5; /* Deixa o ícone legível mesmo pequeno */
+  width: 8px;         /* Reduzido de 10px para 8px */
+  height: 8px;
+  display: block;     /* Remove espaços extras de fontes */
+  flex-shrink: 0;
+  stroke-width: 3;    /* Aumentei o traço para não sumir ao diminuir */
+  
+  /* Ajuste de posição vertical (opcional se não estiver centralizado) */
+  position: relative;
+  top: -0.5px; 
 }
+
 
 
         
