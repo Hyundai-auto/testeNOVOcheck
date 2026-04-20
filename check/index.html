@@ -1058,23 +1058,21 @@
         .security-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px; /* Aumentado levemente para respiro */
+  gap: 4px;
   
-  /* Cores mais sóbrias e profissionais */
-  background-color: #ecfdf5; 
-  color: #059669; 
-  border: 1px solid #d1fae5; /* Adiciona definição sem pesar */
+  /* Mantendo suas cores originais */
+  background: #f0fdf4;
+  color: #16a34a;
   
-  /* Espaçamento e Forma */
-  padding: 2px 10px; /* Reduzi a altura para parecer mais "fino" */
-  border-radius: 9999px;
+  /* Ajuste de dimensões para máxima sutileza */
+  padding: 0px 6px;      /* Zero padding vertical, o texto dita a altura */
+  line-height: 1.4;     /* Controla a altura da linha de forma precisa */
+  height: 18px;         /* Altura fixa garante que ele seja fino em qualquer lugar */
   
   /* Tipografia */
-  font-size: 11px; /* Unidade absoluta costuma ser mais estável para badges */
-  font-weight: 600; /* 700 pode "borrar" em fontes pequenas; 600 é mais limpo */
-  text-transform: uppercase; /* Toque clássico de badges de segurança */
-  letter-spacing: 0.025em;
-  line-height: 1;
+  font-size: 0.65rem;   /* Levemente menor para ganhar respiro */
+  font-weight: 700;
+  border-radius: 100px;
 }
 
         
