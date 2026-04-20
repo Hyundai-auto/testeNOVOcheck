@@ -1199,7 +1199,7 @@ function renderOrderSummary() {
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="order-info-content">
-                        <div class="order-info-label">Endereço de Entrega</div>
+                        <div class="order-info-label"></div>
                         <div class="order-info-text">${deliveryAddress}</div>
                     </div>
                 </div>
@@ -1209,7 +1209,7 @@ function renderOrderSummary() {
                         <i class="fas fa-truck-fast"></i>
                     </div>
                     <div class="order-info-content">
-                        <div class="order-info-label"></div>
+                        <div class="order-info-label">Previsão de Entrega</div>
                         <div class="order-info-text">${deliveryTime}</div>
                     </div>
                 </div>
@@ -1227,6 +1227,7 @@ function renderOrderSummary() {
 
             const paymentHTML = `
                 <div class="review-block">
+                    <div class="review-header-bar">
                         </button>
                         
                     </div>
