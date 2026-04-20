@@ -1085,38 +1085,73 @@
             });
         }
 
-        function renderOrderSummary() {
-            const productInfo = JSON.parse(localStorage.getItem('product_info') || '{}');
-            const productName = productInfo.name || 'Produto Selecionado';
-            const productPhoto = productInfo.photo || 'https://via.placeholder.com/150';
-            const productValue = productInfo.value || subtotalValue;
-            const deliveryAddress = localStorage.getItem('delivery_address') || 'Endereço não informado';
-            const deliveryTime = localStorage.getItem('delivery_time') || '3 a 7 dias úteis';
+        // No arquivo de checkout, localize a função renderOrderSummary() e substitua por esta:
 
-            const orderHTML = `
-                <div class="order-summary-section">
-                    <div class="order-summary-title"><i class="fas fa-box-open"></i> Pedido</div>
-                    <div class="order-card">
-                        <div class="order-image-container">
-                            <img src="${productPhoto}" alt="${productName}">
+function renderOrderSummary() {
+    // Tenta pegar a lista completa de produtos do localStorage
+    const cartProductsJSON = localStorage.getItem('cart_products');
+    const deliveryAddress = localStorage.getItem('delivery_address') || 'Endereço não informado';
+    const deliveryTime = localStorage.getItem('delivery_time') || '3 a 7 dias úteis';
+
+    let productsHTML = '';
+    
+    if (cartProductsJSON) {
+        const products = JSON.parse(cartProductsJSON);
+        
+        // Gera o HTML para cada produto na lista
+        products.forEach(product => {
+            productsHTML += `
+                <div class="order-card" style="margin-bottom: 10px;">
+                    <div class="order-image-container">
+                        <img src="${product.p}" alt="${product.n}">
+                    </div>
+                    <div class="order-details">
+                        <div class="order-product-name">${product.n}</div>
+                        <div class="order-product-price">
+                            ${product.q}x R$ ${parseFloat(product.v).toFixed(2).replace('.', ',')}
                         </div>
-                        <div class="order-details">
-                            <div class="order-product-name">${productName}</div>
-                            <div class="order-product-price">R$ ${parseFloat(productValue).toFixed(2).replace('.', ',')}</div>
-                            <div class="order-info-row">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div class="order-info-text">${deliveryAddress}</div>
-                            </div>
-                            <div class="order-info-row">
-                                <i class="fas fa-truck"></i>
-                                <div class="order-info-text">Entrega em: ${deliveryTime}</div>
-                            </div>
+                        <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary);">
+                            Total: R$ ${(product.q * product.v).toFixed(2).replace('.', ',')}
                         </div>
                     </div>
                 </div>
             `;
-            document.getElementById('order-summary-wrapper').innerHTML = orderHTML;
-        }
+        });
+    } else {
+        // Fallback para caso não haja lista (mantém compatibilidade com o formato antigo)
+        const productInfo = JSON.parse(localStorage.getItem('product_info') || '{}');
+        productsHTML = `
+            <div class="order-card">
+                <div class="order-image-container">
+                    <img src="${productInfo.photo || 'https://via.placeholder.com/150'}" alt="${productInfo.name}">
+                </div>
+                <div class="order-details">
+                    <div class="order-product-name">${productInfo.name || 'Produto Selecionado'}</div>
+                    <div class="order-product-price">R$ ${parseFloat(productInfo.value || subtotalValue).toFixed(2).replace('.', ',')}</div>
+                </div>
+            </div>
+        `;
+    }
+
+    const orderHTML = `
+        <div class="order-summary-section">
+            <div class="order-summary-title"><i class="fas fa-box-open"></i> Resumo do Pedido</div>
+            ${productsHTML}
+            <div style="margin-top: 15px; padding: 12px; background: #f8fafc; border-radius: 12px; border: 1px solid var(--border-color);">
+                <div class="order-info-row">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="order-info-text"><strong>Entrega em:</strong> ${deliveryAddress}</div>
+                </div>
+                <div class="order-info-row" style="margin-top: 8px;">
+                    <i class="fas fa-truck"></i>
+                    <div class="order-info-text"><strong>Prazo:</strong> ${deliveryTime}</div>
+                </div>
+            </div>
+        </div>
+    `;
+    document.getElementById('order-summary-wrapper').innerHTML = orderHTML;
+}
+
 
         function renderPaymentOptions() {
             const baseTotal = subtotalValue;
