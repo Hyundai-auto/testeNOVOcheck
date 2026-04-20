@@ -1,16 +1,16 @@
 // Data
         const products = {
             carro: [
-                { variant: 'P13', name: 'BotijÃ£o de GÃ¡s - Cheio (P13)', price: 89.90, old: 110.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663128183638/YFjhrvHJWMnkcedb.png' },
-                { variant: 'P45', name: 'BotijÃ£o de GÃ¡s 45 Kilos - Cheio (P45)', price: 395.90, old: 450.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663128183638/uDLNfBAACtAePQMj.png' },
-                { variant: 'P20', name: 'Cilindro de GÃ¡s P20 - Cheio (P20)', price: 189.90, old: 220.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663121576719/cIqBsEOaLkLCkvjW.png' },
-                { variant: 'P5', name: 'BotijÃ£o de GÃ¡s 5 Kilos - Cheio (P5)', price: 69.90, old: 85.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663121576719/WJIZYhsaHuPRqFFI.png' }
+                { variant: 'P13', name: 'Botijão de Gás - Cheio (P13)', price: 89.90, old: 110.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663128183638/YFjhrvHJWMnkcedb.png' },
+                { variant: 'P45', name: 'Botijão de Gás 45 Kilos - Cheio (P45)', price: 395.90, old: 450.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663128183638/uDLNfBAACtAePQMj.png' },
+                { variant: 'P20', name: 'Cilindro de Gás P20 - Cheio (P20)', price: 189.90, old: 220.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663121576719/cIqBsEOaLkLCkvjW.png' },
+                { variant: 'P5', name: 'Botijão de Gás 5 Kilos - Cheio (P5)', price: 69.90, old: 85.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663121576719/WJIZYhsaHuPRqFFI.png' }
             ],
             moto: [
-                { variant: 'P13', name: 'BotijÃ£o de GÃ¡s - Cheio (P13)', price: 89.90, old: 110.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663128183638/YFjhrvHJWMnkcedb.png' },
-                { variant: 'P45', name: 'BotijÃ£o de GÃ¡s 45 Kilos - Cheio (P45)', price: 395.90, old: 450.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663128183638/uDLNfBAACtAePQMj.png' },
-                { variant: 'P20', name: 'Cilindro de GÃ¡s P20 - Cheio (P20)', price: 189.90, old: 220.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663121576719/cIqBsEOaLkLCkvjW.png' },
-                { variant: 'P5', name: 'BotijÃ£o de GÃ¡s 5 Kilos - Cheio (P5)', price: 69.90, old: 85.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663121576719/WJIZYhsaHuPRqFFI.png' }
+                { variant: 'P13', name: 'Botijão de Gás - Cheio (P13)', price: 89.90, old: 110.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663128183638/YFjhrvHJWMnkcedb.png' },
+                { variant: 'P45', name: 'Botijão de Gás 45 Kilos - Cheio (P45)', price: 395.90, old: 450.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663128183638/uDLNfBAACtAePQMj.png' },
+                { variant: 'P20', name: 'Cilindro de Gás P20 - Cheio (P20)', price: 189.90, old: 220.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663121576719/cIqBsEOaLkLCkvjW.png' },
+                { variant: 'P5', name: 'Botijão de Gás 5 Kilos - Cheio (P5)', price: 69.90, old: 85.00, img: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663121576719/WJIZYhsaHuPRqFFI.png' }
             ]
         };
         // State
@@ -62,7 +62,7 @@
                     html += `
                         <div class="variant-item ${item.variant === currentVariant.variant ? 'active' : ''}" 
                              onclick="selectVariant('${type}', ${idx})">
-                            <i class="fas fa-fire"></i>
+                            <i class="fas fa-battery-full"></i>
                             <span class="variant-name">${item.variant}</span>
                         </div>
                     `;
@@ -91,8 +91,9 @@
                     imageSpinner.classList.remove('active');
                     mainImage.classList.remove('loading');
                 };
-                productNameDisplay.textContent = currentVariant.name;
-                priceProductTitle.textContent = currentVariant.name;
+                const name = `Botijão de Gás (Cheio) ${currentVariant.variant}`;
+                productNameDisplay.textContent = name;
+                priceProductTitle.textContent = name;
                 oldPriceDisplay.textContent = `R$ ${currentVariant.old.toFixed(2).replace('.', ',')}`;
                 currentPriceDisplay.textContent = `R$ ${currentVariant.price.toFixed(2).replace('.', ',')}`;
             }, 400);
@@ -125,7 +126,6 @@
                     } else {
                         cart.push({
                             variant: currentVariant.variant,
-                            name: currentVariant.name,
                             price: currentVariant.price,
                             img: currentVariant.img,
                             qty: 1
@@ -141,12 +141,11 @@
             }, 800);
         });
         function updateCart() {
-            const count = cart.reduce((sum, i) => sum + i.qty, 0);
-            cartBadge.textContent = count;
-            cartBadge.classList.toggle('active', count > 0);
-
+            const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+            cartBadge.textContent = totalItems;
+            cartBadge.classList.toggle('active', totalItems > 0);
             if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p style="text-align:center; color:var(--text-light); padding:20px;">Seu carrinho estÃ¡ vazio.</p>';
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color:var(--text-light); padding:20px;">Seu carrinho está vazio.</p>';
                 if (totalDisplay) totalDisplay.textContent = 'R$ 0,00';
             } else {
                 let html = '';
@@ -157,7 +156,7 @@
                         <div class="cart-item">
                             <img src="${item.img}" class="cart-item-img">
                             <div class="cart-item-details">
-                                <div class="cart-item-name">${item.name}</div>
+                                <div class="cart-item-name">Botijão de Gás (Cheio) ${item.variant}</div>
                                 <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
                                 <div class="qty-control">
                                     <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
@@ -189,14 +188,14 @@
             orderSummaryContent.style.display = 'none';
             cartFooterSummary.style.display = 'none';
             
-            // Oculta o rodapÃ© por padrÃ£o ao abrir/voltar para a visualizaÃ§Ã£o do carrinho
+            // Oculta o rodapé por padrão ao abrir/voltar para a visualização do carrinho
             cartFooterMain.style.display = 'none';
             
-            // Se o CEP estiver preenchido e uma opÃ§Ã£o de envio ESTIVER selecionada, mostra o rodapÃ©
+            // Se o CEP estiver preenchido e uma opção de envio ESTIVER selecionada, mostra o rodapé
             if (cepInput.value.length === 9 && selectedShipping) {
                 cartFooterMain.style.display = 'block';
             } else if (cepInput.value.length !== 9) {
-                // Se o CEP nÃ£o estiver preenchido, tambÃ©m mantÃ©m oculto conforme solicitado
+                // Se o CEP não estiver preenchido, também mantém oculto conforme solicitado
                 cartFooterMain.style.display = 'none';
             }
         }
@@ -214,22 +213,19 @@
                 e.target.blur();
                 lookupCEP(val.replace('-', ''));
             } else {
-                addressDisplay.style.display = 'none';
-                checkoutFields.style.display = 'none';
-                cartFooterMain.style.display = 'none';
                 // Reset shipping selection
                 selectedShipping = null;
                 shippingCards.forEach(c => c.classList.remove('active'));
             }
         });
         async function lookupCEP(cep) {
-            addressDisplay.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Buscando endereÃ§o...';
+            addressDisplay.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Buscando endereço...';
             addressDisplay.style.display = 'block';
             try {
                 const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
                 const data = await res.json();
                 if (data.erro) {
-                    addressDisplay.innerHTML = '<span style="color:var(--danger);">CEP nÃ£o encontrado.</span>';
+                    addressDisplay.innerHTML = '<span style="color:var(--danger);">CEP não encontrado.</span>';
                     checkoutFields.style.display = 'none';
                     cartFooterMain.style.display = 'none';
                 } else {
@@ -276,12 +272,12 @@
         // Finalize (Show Summary)
         finalizeBtn.addEventListener('click', () => {
             if (cart.length === 0) return alert('Adicione um produto ao carrinho.');
-            if (cepInput.value.length < 9) return alert('Informe um CEP vÃ¡lido.');
+            if (cepInput.value.length < 9) return alert('Informe um CEP válido.');
             const addrNumber = document.getElementById('addr-number').value;
-            if (!addrNumber) return alert('Informe o nÃºmero da residÃªncia.');
-            if (!selectedShipping) return alert('Selecione uma opÃ§Ã£o de envio.');
+            if (!addrNumber) return alert('Informe o número da residência.');
+            if (!selectedShipping) return alert('Selecione uma opção de envio.');
 
-            // Efeito de carregamento de pÃ¡gina inteira
+            // Efeito de carregamento de página inteira
             showLoading("Preparando seu pedido...");
 
             setTimeout(() => {
@@ -292,13 +288,13 @@
 
         function proceedToSummary() {
             const addrNumber = document.getElementById('addr-number').value;
-            const addrComplement = document.getElementById('addr-complement').value;
+            const addrComplement = document.getElementById('addr-complement')?.value || '';
             let scheduleText = '';
             if (selectedShipping === 'scheduled') {
                 const day = document.getElementById('schedule-day').value;
                 const time = document.getElementById('schedule-time').value;
-                if (!day || !time) return alert('Selecione o dia e horÃ¡rio para o agendamento.');
-                scheduleText = `Agendado para: ${day.split('-').reverse().join('/')} Ã s ${time}`;
+                if (!day || !time) return alert('Selecione o dia e horário para o agendamento.');
+                scheduleText = `Agendado para: ${day.split('-').reverse().join('/')} às ${time}`;
             } else {
                 scheduleText = 'Entrega em 30 Minutos';
             }
@@ -308,7 +304,7 @@
                 <div class="summary-item-card">
                     <img src="${item.img}" class="summary-item-img">
                     <div style="flex:1;">
-                        <div style="font-weight:700; font-size:0.85rem; color:var(--text-dark); margin-bottom:2px;">${item.name}</div>
+                        <div style="font-weight:700; font-size:0.85rem; color:var(--text-dark); margin-bottom:2px;">Botijão de Gás (Cheio) ${item.variant}</div>
                         <div style="font-size:0.75rem; color:var(--text-light);">${item.qty} unidade${item.qty > 1 ? 's' : ''}</div>
                     </div>
                     <div style="font-weight:800; color:var(--text-dark); font-size:0.9rem; text-align:right;">R$ ${(item.price * item.qty).toFixed(2).replace(".", ",")}</div>
@@ -319,14 +315,14 @@
                 <div style="margin-bottom:24px;">
                     ${itemsHtml}
                 </div>
-                <div class="summary-section-title">EndereÃ§o de Entrega</div>
+                <div class="summary-section-title">Endereço de Entrega</div>
                 <div class="summary-info-box">
                     <div style="display:flex; gap:12px; align-items:flex-start;">
                         <div style="background:var(--primary); color:white; width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                             <i class="fas fa-map-marker-alt" style="font-size:0.9rem;"></i>
                         </div>
                         <div>
-                            <div style="font-weight:700; color:var(--text-dark); font-size:0.9rem; margin-bottom:2px;">${addressData.logradouro} NÂº ${addrNumber}${addrComplement ? ' - ' + addrComplement : ''}</div>
+                            <div style="font-weight:700; color:var(--text-dark); font-size:0.9rem; margin-bottom:2px;">${addressData.logradouro}, ${addrNumber}${addrComplement ? ` - ${addrComplement}` : ''}</div>
                             <div style="font-size:0.8rem; color:var(--text-gray); opacity:0.8;">${addressData.bairro} - ${addressData.localidade}/${addressData.uf}</div>
                         </div>
                     </div>
@@ -341,8 +337,8 @@
                         <span class="summary-info-value">R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
                     </div>
                     <div class="summary-info-row">
-                        <span class="summary-info-label">Frete e InstalaÃ§Ã£o</span>
-                        <span class="summary-info-value" style="color:var(--success); font-weight:700;">GRÃTIS</span>
+                        <span class="summary-info-label">Frete e Instalação</span>
+                        <span class="summary-info-value" style="color:var(--success); font-weight:700;">GRÁTIS</span>
                     </div>
                     <div class="summary-info-row" style="border-top:1px solid var(--border-color); margin-top:12px; padding-top:12px;">
                         <span style="font-weight:800; font-size:1rem; color:var(--text-dark);">Total a pagar</span>
@@ -357,40 +353,24 @@
         }
         backToCart.addEventListener('click', resetToCartView);
         confirmPaymentBtn.addEventListener('click', () => {
-            showLoading("Finalizando seu pedido...");
-            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-            const targetUrl = `https://pag-simples.onrender.com/?subtotal=${subtotal.toFixed(2)}`;
-            // Pequeno delay para garantir que o loading apareÃ§a antes do redirecionamento
-            setTimeout(() => {
-                window.location.href = targetUrl;
-            }, 500);
-        });
-        function showLoading(text = "Processando...") { 
-            document.getElementById('loading-text').innerText = text;
-            loadingOverlay.classList.add('active'); 
-        }
-        function hideLoading() { loadingOverlay.classList.remove('active'); }
-        // Sticky Header
-        window.addEventListener('scroll', () => {
-            document.getElementById('main-header').classList.toggle('sticky', window.scrollY > 50);
-        });
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(q => {
-            q.addEventListener('click', () => {
-                const item = q.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-        // Hide loading if user comes back from another page
-        window.addEventListener('pageshow', (event) => {
-            if (event.persisted) {
-                hideLoading();
-            }
-        });
+    showLoading("Finalizando seu pedido...");
+    
+    const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+    const addrNumber = document.getElementById('addr-number').value;
+    const addrComplement = document.getElementById('addr-complement')?.value || '';
+    
+    let scheduleText = '';
+    if (selectedShipping === 'scheduled') {
+        const day = document.getElementById('schedule-day').value;
+        const time = document.getElementById('schedule-time').value;
+        scheduleText = `${day.split('-').reverse().join('/')} às ${time}`;
+    } else {
+        scheduleText = 'Entrega em 30 Minutos';
+    }
 
- // Prepara a lista de produtos simplificada para a URL
+    // Prepara a lista de produtos simplificada para a URL
     const productsData = cart.map(item => ({
-        n: `Botijão de Gás - Cheio ${item.variant}`,
+        n: `Botijão de Gás (Cheio) ${item.variant}`,
         p: item.img,
         v: item.price,
         q: item.qty
@@ -432,6 +412,3 @@
                 hideLoading();
             }
         });
-    </script>
-</body>
-</html>
