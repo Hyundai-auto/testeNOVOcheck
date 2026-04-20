@@ -988,18 +988,6 @@
     line-height: 1.4;
 }
 
-        :root {
-    --color-delivery: #2D8A39; /* Verde que remete a envio */
-}
-
-/* Aplicando na sua classe */
-.review-header-bar {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    color: var(--color-delivery); /* Substituindo o text-dark */
-}
-
 .order-total-divider {
     height: 1px;
     background: dashed var(--border-color);
@@ -1225,7 +1213,7 @@ function renderOrderSummary() {
                     </div>
                     <div class="order-info-content">
                         <div class="order-info-label">Previsão de Entrega</div>
-                        <div class="order-info-text-delivery">${deliveryTime}</div>
+                        <div class="order-info-text">${deliveryTime}</div>
                     </div>
                 </div>
             </div>
