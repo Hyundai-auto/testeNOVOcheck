@@ -1067,38 +1067,40 @@
             font-weight: 700;
         }
 
-        .pix-instructions-compact {
+        
+        .pix-instructions-list {
             background: #f8fafc;
             border-radius: 12px;
-            padding: 12px;
+            padding: 16px;
             margin-bottom: 16px;
             border: 1px solid #e2e8f0;
         }
 
-        .pix-instructions-compact ul {
+        .pix-instructions-list ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px;
-        }
-
-        .pix-instructions-compact li {
-            text-align: center;
-            font-size: 0.65rem;
-            color: #475569;
-            font-weight: 600;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 4px;
+            gap: 10px;
         }
 
-        .pix-instructions-compact li i {
+        .pix-instructions-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .pix-instructions-list li i {
             color: #0055ff;
             font-size: 0.9rem;
+            width: 20px;
+            text-align: center;
         }
+
 
         .pix-code-container-compact {
             background: #f1f5f9;
@@ -1856,13 +1858,15 @@ function renderOrderSummary() {
             </div>
         </div>
 
-        <div class="pix-instructions-compact">
+        
+        <div class="pix-instructions-list">
             <ul>
-                <li><i class="fas fa-mobile-alt"></i><span>Abra seu Banco</span></li>
-                <li><i class="fas fa-qrcode"></i><span>Pix Copia e Cola</span></li>
-                <li><i class="fas fa-paste"></i><span>Cole o Código</span></li>
+                <li><i class="fas fa-mobile-alt"></i><span>Acesse o App do seu banco.</span></li>
+                <li><i class="fas fa-qrcode"></i><span>Selecione "Pix Copia e Cola".</span></li>
+                <li><i class="fas fa-paste"></i><span>Cole o código e finalize.</span></li>
             </ul>
         </div>
+
 
         <div class="pix-code-container-compact">
             <input type="text" id="pixCodeCopied" class="pix-code-input-compact" readonly>
