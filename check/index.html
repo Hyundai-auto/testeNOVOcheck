@@ -1018,7 +1018,8 @@
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 15px;
+            padding: 10px;
+            overflow-y: auto;
         }
 
         .pix-modal-overlay.active {
@@ -1029,17 +1030,18 @@
             background: #ffffff;
             width: 100%;
             max-width: 400px;
-            border-radius: 28px;
+            border-radius: 24px;
             padding: 0;
             position: relative;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: auto;
         }
 
         .pix-modal-inner {
-            padding: 32px 24px 24px;
+            padding: 24px 20px 20px;
         }
 
         .pix-modal-header {
@@ -1106,9 +1108,9 @@
 
         .pix-instructions-list {
             background: #f1f5f9;
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 24px;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 20px;
             border: 1px solid #e2e8f0;
         }
 
@@ -1148,12 +1150,12 @@
 
         .pix-code-container-compact {
             background: #ffffff;
-            border-radius: 16px;
-            padding: 12px;
-            margin-bottom: 20px;
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             border: 2px solid #e2e8f0;
             transition: border-color 0.2s;
         }
@@ -1180,16 +1182,16 @@
             background: #0f172a;
             color: white;
             border: none;
-            padding: 10px 16px;
-            border-radius: 10px;
-            font-size: 0.8rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
             font-weight: 700;
             cursor: pointer;
             white-space: nowrap;
             transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
         }
 
         .pix-copy-btn-compact:hover {
@@ -1226,12 +1228,12 @@
 
         .pix-modal-close-compact {
             width: 100%;
-            padding: 18px;
+            padding: 16px;
             background: #0055ff;
             color: white;
             border: none;
-            border-radius: 16px;
-            font-size: 1rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
             font-weight: 800;
             cursor: pointer;
             box-shadow: 0 10px 15px -3px rgba(0, 85, 255, 0.3);
