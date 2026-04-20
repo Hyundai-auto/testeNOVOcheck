@@ -902,33 +902,34 @@
         }
         /* Order Summary View */
         .summary-section-title {
-            font-size: 0.75rem;
-            font-weight: 900;
-            color: var(--primary);
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--text-light);
             text-transform: uppercase;
-            margin-bottom: 16px;
-            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 10px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--primary);
         }
         .summary-section-title::after {
-            display: none;
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+            opacity: 0.5;
         }
         .summary-item-card {
             display: flex;
             align-items: center;
             gap: 16px;
-            padding: 14px;
+            padding: 12px;
             background: var(--bg-white);
-            border: 1.5px solid var(--border-color);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             transition: all 0.3s ease;
             box-shadow: var(--shadow-sm);
-            border-left: 4px solid var(--primary);
         }
         .summary-item-img {
             width: 50px;
@@ -938,14 +939,13 @@
             border-radius: var(--radius-sm);
         }
         .summary-info-box {
-            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(230, 238, 250, 0.5) 100%);
-            border: 2px solid var(--primary);
+            background: var(--primary-light);
+            border: 1px solid rgba(0, 70, 190, 0.1);
             border-radius: var(--radius-md);
-            padding: 18px;
+            padding: 16px;
             margin-bottom: 24px;
             font-size: 0.85rem;
             color: var(--text-dark);
-            box-shadow: 0 2px 8px rgba(0, 70, 190, 0.08);
         }
         .summary-info-row {
             display: flex;
@@ -962,12 +962,11 @@
             color: var(--text-dark);
         }
         .summary-totals-block {
-            background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-light) 100%);
+            background: var(--bg-light);
             border-radius: var(--radius-md);
-            padding: 24px;
+            padding: 20px;
             margin-top: 10px;
-            border: 2px solid var(--primary);
-            box-shadow: 0 4px 16px rgba(0, 70, 190, 0.12);
+            border: 1px solid var(--border-color);
         }
         .loading-overlay {
             position: fixed;
