@@ -1677,7 +1677,7 @@ function renderOrderSummary() {
                     selectedPaymentType = 'pix';
                     pixCard.classList.add('selected');
                     deliveryCard.classList.remove('selected');
-                    pixCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    const header = document.querySelector('.header'); const headerHeight = header ? header.offsetHeight : 0; const elementPosition = pixCard.getBoundingClientRect().top + window.pageYOffset; window.scrollTo({ top: elementPosition - headerHeight, behavior: 'smooth' });
                 } else if (e.target.closest('#btn-generate-pix')) {
                     generatePix();
                 }
