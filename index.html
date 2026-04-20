@@ -205,19 +205,21 @@
         }
 
         .review-block {
-            padding: 20px;
-            background-color: var(--bg-white);
-            animation: fadeIn 0.3s ease-out;
-        }
+    padding: 20px;
+    background-color: var(--bg-white);
+    animation: fadeIn 0.3s ease-out;
+    /* A linha única agora fica aqui */
+    border-bottom: 1px solid var(--border-color);
+}
 
-        .review-header-bar {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
+.review-header-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Removido margin e border daqui para evitar a linha dupla */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
         .review-back-btn {
             background: var(--bg-light);
@@ -1226,6 +1228,8 @@ function renderOrderSummary() {
             let selectedPaymentType = '';
 
             const paymentHTML = `
+                <div class="review-block">
+                    <div class="review-header-bar">
                         
                     </div>
                     <div class="payment-options-container">
