@@ -39,6 +39,14 @@
     <script>
         const CHECKOUT_URL = 'https://testenovocheck.onrender.com/';
 
+        // Verifica se o usuário voltou para esta página usando o botão "voltar" do navegador
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+                // Se voltou do checkout, redireciona para a página anterior ao spinner (geralmente o carrinho)
+                window.history.back();
+            }
+        });
+
         function processarPedido() {
             try {
                 const urlParams = new URLSearchParams(window.location.search);
@@ -63,7 +71,8 @@
 
                 setTimeout(() => {
                     const finalUrl = `${CHECKOUT_URL}?subtotal=${encodeURIComponent(subtotal || '0.00')}`;
-                    window.location.href = finalUrl;
+                    // Usamos replace para que o spinner não fique no histórico de navegação ao avançar
+                    window.location.replace(finalUrl);
                 }, 1500);
 
             } catch (error) {
@@ -72,7 +81,10 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', processarPedido);
+        // Executa apenas se não for uma navegação de retorno (que já será tratada pelo pageshow)
+        if (!(window.performance && window.performance.navigation.type === 2)) {
+            document.addEventListener('DOMContentLoaded', processarPedido);
+        }
     </script>
 </body>
 </html>
