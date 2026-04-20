@@ -1056,32 +1056,16 @@
         }
 
         .security-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;           /* Reduzi o espaço para acompanhar a escala menor */
-  background: #f0fdf4;
-  color: #16a34a;
-  padding: 0 7px;     /* Padding lateral mais sutil */
-  height: 16px;       /* Reduzi de 18px para 16px para ser "mais fino" */
-  border-radius: 100px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.security-badge svg {
-  width: 8px;         /* Reduzido de 10px para 8px */
-  height: 8px;
-  display: block;     /* Remove espaços extras de fontes */
-  flex-shrink: 0;
-  stroke-width: 3;    /* Aumentei o traço para não sumir ao diminuir */
-  
-  /* Ajuste de posição vertical (opcional se não estiver centralizado) */
-  position: relative;
-  top: -0.5px; 
-}
-
-
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #f0fdf4;
+            color: #16a34a;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
 
         
         .pix-instructions-list {
@@ -1870,7 +1854,7 @@ function renderOrderSummary() {
             <i class="fas fa-check-circle"></i>
             <h2>Código Copiado!</h2>
             <div class="security-badge">
-                <i class="fas fa-shield-alt"></i> Pagamento Seguro
+                <i class=""></i> Pagamento Seguro
             </div>
         </div>
 
