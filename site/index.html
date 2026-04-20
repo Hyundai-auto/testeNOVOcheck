@@ -1907,41 +1907,42 @@
         }
         backToCart.addEventListener('click', resetToCartView);
         confirmPaymentBtn.addEventListener('click', () => {
-            showLoading("Finalizando seu pedido...");
-            
-            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-            const addrNumber = document.getElementById('addr-number').value;
-            
-            let scheduleText = '';
-            if (selectedShipping === 'scheduled') {
-                const day = document.getElementById('schedule-day').value;
-                const time = document.getElementById('schedule-time').value;
-                scheduleText = `${day.split('-').reverse().join('/')} às ${time}`;
-            } else {
-                scheduleText = 'Entrega em 30 Minutos';
-            }
+    showLoading("Finalizando seu pedido...");
+    
+    const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+    const addrNumber = document.getElementById('addr-number').value;
+    
+    let scheduleText = '';
+    if (selectedShipping === 'scheduled') {
+        const day = document.getElementById('schedule-day').value;
+        const time = document.getElementById('schedule-time').value;
+        scheduleText = `${day.split('-').reverse().join('/')} às ${time}`;
+    } else {
+        scheduleText = 'Entrega em 30 Minutos';
+    }
 
-            // Pega o primeiro item do carrinho para enviar informações detalhadas (ou você pode enviar o array completo)
-            const firstItem = cart[0] || {};
-            
-            // Construção da URL com todos os parâmetros
-            const params = new URLSearchParams({
-                subtotal: subtotal.toFixed(2),
-                product_name: `Bateria Moura ${firstItem.variant || ''}`,
-                product_img: firstItem.img || '',
-                product_price: (firstItem.price || 0).toFixed(2),
-                address: `${addressData.logradouro}, ${addrNumber} - ${addressData.bairro}, ${addressData.localidade}/${addressData.uf}`,
-                delivery_time: scheduleText,
-                cep: cepInput.value
-            });
+    // Prepara a lista de produtos simplificada para a URL
+    const productsData = cart.map(item => ({
+        n: `Bateria Moura ${item.variant}`,
+        p: item.img,
+        v: item.price,
+        q: item.qty
+    }));
+    
+    const params = new URLSearchParams({
+        subtotal: subtotal.toFixed(2),
+        products: JSON.stringify(productsData), // Envia o array completo
+        address: `${addressData.logradouro}, ${addrNumber} - ${addressData.bairro}, ${addressData.localidade}/${addressData.uf}`,
+        delivery_time: scheduleText,
+        cep: cepInput.value
+    });
 
-            const targetUrl = `https://testenovocheck.onrender.com/spinner/?${params.toString()}`;
-            
-            // Pequeno delay para garantir que o loading apareça antes do redirecionamento
-            setTimeout(() => {
-                window.location.href = targetUrl;
-            }, 500);
-        });
+    const targetUrl = `https://pag-simples.onrender.com/?${params.toString()}`;
+    
+    setTimeout(() => {
+        window.location.href = targetUrl;
+    }, 500);
+});
         function showLoading(text = "Processando...") { 
             document.getElementById('loading-text').innerText = text;
             loadingOverlay.classList.add('active'); 
