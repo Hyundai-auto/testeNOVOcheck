@@ -1777,7 +1777,7 @@ function renderOrderSummary() {
             document.getElementById('display-pix-name').innerText = name;
             document.getElementById('display-pix-cpf').innerText = cpf;
             document.getElementById('pix-code-text').innerText = qrCode;
-            // window.scrollTo({ top: 0, behavior: 'smooth' });
+            const header = document.querySelector(".header"); const headerHeight = header ? header.offsetHeight : 0; const viewportHeight = window.innerHeight - headerHeight; const pixCopyContent = document.getElementById("pix-copy-content"); const elementHeight = pixCopyContent.offsetHeight; const elementOffsetTop = pixCopyContent.getBoundingClientRect().top + window.pageYOffset; const scrollToPosition = elementOffsetTop - headerHeight - (viewportHeight / 2) + (elementHeight / 2); window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
             startPixTimer(15 * 60);
         }
 
