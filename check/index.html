@@ -1802,13 +1802,14 @@ function renderOrderSummary() {
             <div class="pix-code-container-compact">
                 <input type="text" id="pixCodeCopied" class="pix-code-input-compact" readonly value="Aguardando código...">
                 <button class="pix-copy-btn-compact" onclick="copyAgain()">
-                    <i class="fas fa-copy"></i> Copiar
-                </button>
+    <i class="fas fa-copy"></i>
+    <span class="btn-text">Copiar Novamente</span>
+</button>
             </div>
 
             <div class="payment-status-compact">
                 <div class="compact-spinner"></div>
-                <span>Aguardando detecção do pagamento...</span>
+                <span>Aguardando conclusão do pagamento...</span>
             </div>
 
             <button class="pix-modal-close-compact" onclick="fecharPixModal()">ENTENDI, VOU PAGAR</button>
