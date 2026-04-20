@@ -988,6 +988,15 @@
     line-height: 1.4;
 }
 
+        .order-info-text-delivery {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2D8A39; /* Verde de envio/logística */
+    line-height: 1.4;
+}
+
+
+
 .order-total-divider {
     height: 1px;
     background: dashed var(--border-color);
@@ -1213,7 +1222,7 @@ function renderOrderSummary() {
                     </div>
                     <div class="order-info-content">
                         <div class="order-info-label">Previsão de Entrega</div>
-                        <div class="order-info-text">${deliveryTime}</div>
+                        <div class="order-info-text-delivery">${deliveryTime}</div>
                     </div>
                 </div>
             </div>
