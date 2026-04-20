@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -329,21 +330,30 @@
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
-        /* Price Section */
-        .price-section {
-            margin-bottom: 25px;
+        /* Pricing */
+        .pricing-box {
+            background-color: #F8F9FA;
+            border-radius: var(--radius-sm);
+            padding: 15px;
+            margin-bottom: 20px;
             text-align: left;
-        }
-        .price-product-title {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 5px;
         }
         .price-row {
             display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .price-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-gray);
+        }
+        .price-main {
+            display: flex;
             align-items: baseline;
             gap: 10px;
+            flex-wrap: wrap;
         }
         .old-price {
             font-size: 0.9rem;
@@ -351,401 +361,56 @@
             text-decoration: line-through;
         }
         .current-price {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 900;
             color: var(--primary);
         }
-        .price-badge {
-            background: var(--primary-light);
-            color: var(--primary);
+        .discount-tag {
+            background-color: var(--danger);
+            color: white;
             font-size: 0.7rem;
-            font-weight: 700;
+            font-weight: 800;
             padding: 2px 8px;
             border-radius: 4px;
-            margin-left: 5px;
         }
-        /* Benefits */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 25px;
+        .payment-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 10px;
         }
-        .benefit-item {
+        .payment-info div {
             display: flex;
             align-items: center;
-            gap: 10px;
-            background: var(--bg-light);
-            padding: 12px;
-            border-radius: var(--radius-sm);
-            text-align: left;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
         }
-        .benefit-item i {
-            color: var(--primary);
-            font-size: 1.2rem;
+        .payment-info i {
+            color: var(--success);
+            width: 16px;
         }
-        .benefit-text {
-            font-size: 0.75rem;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-        /* Action Button */
+        /* Buttons */
         .btn-primary {
             width: 100%;
-            background-color: var(--success);
-            color: white;
-            border: none;
             padding: 16px;
+            border: none;
             border-radius: var(--radius-md);
             font-size: 1rem;
             font-weight: 800;
+            color: white;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            position: relative;
         }
         .btn-primary:active {
             transform: scale(0.98);
-            box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2);
-        }
-        /* Tabs */
-        .tabs-container {
-            margin-top: 30px;
-            border-top: 1px solid var(--border-color);
-        }
-        .tabs-header {
-            display: flex;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .tab-btn {
-            flex: 1;
-            padding: 15px;
-            background: none;
-            border: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-light);
-            cursor: pointer;
-            position: relative;
-        }
-        .tab-btn.active {
-            color: var(--primary);
-        }
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary);
-        }
-        .tab-content {
-            padding: 20px 0;
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .spec-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--bg-light);
-            font-size: 0.85rem;
-        }
-        .spec-label {
-            color: var(--text-light);
-        }
-        .spec-value {
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-        /* FAQ */
-        .faq-item {
-            margin-bottom: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-        }
-        .faq-question {
-            padding: 15px;
-            background: var(--bg-white);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-        .faq-answer {
-            padding: 0 15px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            background: var(--bg-light);
-            font-size: 0.8rem;
-            color: var(--text-gray);
-        }
-        .faq-item.active .faq-answer {
-            padding: 15px;
-            max-height: 200px;
-        }
-        .faq-item.active i {
-            transform: rotate(180deg);
-        }
-        /* Cart Modal */
-        .cart-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
-            display: none;
-            justify-content: center;
-            align-items: flex-end;
-        }
-        .cart-modal.active {
-            display: flex;
-        }
-        .cart-panel {
-            width: 100%;
-            max-width: 480px;
-            background: white;
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            animation: slideUp 0.3s ease-out;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
-        .cart-header {
-            padding: 20px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .cart-title {
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-        .close-btn {
-            background: var(--bg-light);
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        .cart-content {
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .cart-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--bg-light);
-        }
-        .cart-item-img {
-            width: 70px;
-            height: 70px;
-            object-fit: contain;
-            background: var(--bg-light);
-            border-radius: var(--radius-sm);
-        }
-        .cart-item-info {
-            flex: 1;
-        }
-        .cart-item-name {
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 4px;
-        }
-        .cart-item-price {
-            font-weight: 800;
-            color: var(--primary);
-            font-size: 1rem;
-        }
-        .cart-footer {
-            padding: 20px;
-            border-top: 1px solid var(--border-color);
-            background: white;
-        }
-        .total-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-        .total-label {
-            font-weight: 600;
-            color: var(--text-light);
-        }
-        .total-value {
-            font-weight: 900;
-            font-size: 1.3rem;
-            color: var(--text-dark);
-        }
-        /* Form Styles */
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        .form-label {
-            display: block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--text-light);
-            margin-bottom: 6px;
-            text-transform: uppercase;
-        }
-        .form-input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        .address-box {
-            background: var(--primary-light);
-            padding: 12px;
-            border-radius: var(--radius-sm);
-            margin-top: 10px;
-            font-size: 0.85rem;
-            color: var(--primary-dark);
-            display: none;
-        }
-        /* Shipping Options */
-        .shipping-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .shipping-card {
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            padding: 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .shipping-card.active {
-            border-color: var(--primary);
-            background: var(--primary-light);
-        }
-        .shipping-card i {
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-        .shipping-name {
-            font-weight: 700;
-            font-size: 0.8rem;
-        }
-        .shipping-time {
-            font-size: 0.7rem;
-            color: var(--text-light);
-        }
-        .shipping-price {
-            font-weight: 800;
-            color: var(--success);
-            font-size: 0.8rem;
-        }
-        /* Summary Styles */
-        .summary-section-title {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .summary-info-box {
-            background: white;
-            border-radius: var(--radius-md);
-            padding: 16px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-        }
-        .summary-item-card {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: white;
-            border-radius: var(--radius-sm);
-            margin-bottom: 10px;
-            border: 1px solid var(--border-color);
-        }
-        .summary-item-img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-        }
-        .summary-totals-block {
-            background: white;
-            border-radius: var(--radius-md);
-            padding: 20px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-        }
-        .summary-info-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        .summary-info-label {
-            color: var(--text-light);
-            font-size: 0.85rem;
-        }
-        .summary-info-value {
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 0.85rem;
-        }
-        /* Loading Overlay */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.95);
-            z-index: 3000;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .loading-overlay.active {
-            display: flex;
         }
         .btn-spinner {
             width: 20px;
@@ -756,13 +421,651 @@
             animation: spin 0.8s linear infinite;
             display: none;
         }
-        .btn-spinner.active {
+        .btn-primary.loading .btn-spinner {
             display: block;
         }
+        .btn-primary.loading i, .btn-primary.loading span {
+            display: none;
+        }
+        /* Features */
+        .features-section {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .feature-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .feature-content h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .feature-content p {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            line-height: 1.4;
+        }
+        /* Reviews */
+        .reviews-section {
+            padding: 30px 20px;
+            background-color: #F8F9FA;
+        }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .review-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin-bottom: 15px;
+            box-shadow: var(--shadow-sm);
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.8rem;
+        }
+        .user-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: block;
+        }
+        .stars {
+            color: var(--accent);
+            font-size: 0.7rem;
+            display: flex;
+            gap: 2px;
+        }
+        .review-text {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* Novas Seções Estilos */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+        }
+        .benefit-item {
+            text-align: center;
+            padding: 15px 5px;
+        }
+        .benefit-item i {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+        .benefit-item span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .newsletter-section {
+            padding: 30px 20px;
+            background: var(--bg-white);
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+        .newsletter-section h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .newsletter-section p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+        .newsletter-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .newsletter-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .faq-section {
+            padding: 30px 20px;
+            background: var(--bg-light);
+        }
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .faq-question {
+            padding: 15px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .faq-answer {
+            padding: 0 15px 15px;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        .faq-item.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 60px 20px 20px;
+    font-family: sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #ffb400; /* Cor de destaque */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #ffffff;
+}
+
+.footer-description {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    font-size: 1.2rem;
+}
+
+.social-links a {
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #ffb400;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+        /* Utilities */
+        .mt-20 { margin-top: 20px; }
+        .mb-10 { margin-bottom: 10px; }
+        .text-success { color: var(--success); }
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: flex-end;
+            z-index: 2000;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .cart-panel {
+            width: 100%;
+            max-width: 480px;
+            background: white;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.3s ease-out;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        .cart-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 15px;
+        }
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        .qty-btn {
+            width: 24px;
+            height: 24px;
+            border: 1px solid var(--border-color);
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .address-box {
+            background-color: var(--primary-light);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            display: none;
+        }
+        .shipping-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .shipping-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .shipping-card.active {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+        }
+        .shipping-card i {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        .shipping-info {
+            flex: 1;
+        }
+        .shipping-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: block;
+        }
+        .shipping-time {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+        .shipping-price {
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: var(--success);
+        }
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            background: white;
+        }
+        #cart-footer-main {
+            display: none;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .total-label {
+            font-weight: 700;
+            color: var(--text-gray);
+        }
+        .total-value {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+        /* Order Summary View */
+        .summary-section-title {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .summary-section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+            opacity: 0.5;
+        }
+        .summary-item-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .summary-item-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            background: var(--bg-light);
+            border-radius: var(--radius-sm);
+        }
+        .summary-info-box {
+            background: var(--primary-light);
+            border: 1px solid rgba(0, 70, 190, 0.1);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+        .summary-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .summary-info-label {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+        .summary-info-value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .summary-totals-block {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 10px;
+            border: 1px solid var(--border-color);
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+        }
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .hero {
+  max-width: 600px; /* Ajuste conforme a largura do seu layout */
+}
+
+.hero-reviews {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+  /* Opcional: borda sutil em branco transparente */
+  border-top: 1px solid rgba(255, 255, 255, 0.2); 
+  padding-top: 10px;
+}
+
+.reviews-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  color: #ffb400; /* Mantive o dourado para destaque, mas pode ser branco se preferir */
+  font-size: 1.1rem;
+}
+
+.rating-score {
+  font-weight: bold;
+  color: #ffffff; /* Texto branco */
+}
+
+.rating-count {
+  color: #ffffff; /* Texto branco */
+  font-size: 0.9rem;
+  opacity: 0.9; /* Leve transparência para diferenciar da nota */
+}
+
+        .contact-info li {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contact-info i {
+    color: #ffb400; /* Cor dourada nos ícones para combinar */
+    margin-top: 4px;
+    width: 16px;
+    text-align: center;
+}
+
+.contact-info strong {
+    color: #fff;
+    display: block;
+}
+
+        .contact-info div {
+    display: flex;
+    flex-direction: column; /* Força um item abaixo do outro */
+    gap: 2px;
+}
+
+.dias-texto {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.horario-texto {
+    color: #ffb400; /* Cor de destaque para o horário */
+    font-weight: bold;
+}
+
+
+
     </style>
 </head>
 <body>
-
     <div class="mobile-container">
         <!-- Header -->
         <header class="header" id="main-header">
@@ -780,156 +1083,371 @@
                 </button>
             </div>
         </header>
-
         <!-- Trust Bar -->
         <div class="trust-bar">
+            <span><i class="fas fa-shield-alt"></i> Site Seguro</span>
+            <span><i class="fas fa-star"></i> 4.9/5 Avaliações</span>
             <span><i class="fas fa-check-circle"></i> Original</span>
-            <span><i class="fas fa-truck"></i> Entrega Grátis</span>
-            <span><i class="fas fa-tools"></i> Instalação Grátis</span>
         </div>
-
         <!-- Hero -->
         <section class="hero">
-            <h1 class="hero-title">Sua bateria acabou?</h1>
-            <p class="hero-subtitle">Entregamos e instalamos em até 30 min</p>
-            
-            <div class="product-card">
-                <div class="original-tag">100% Original</div>
-                <div class="product-image-wrapper">
-                    <div class="spinner-container" id="image-spinner">
-                        <div class="spinner"></div>
-                    </div>
-                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663062565631/fbqaUnWlFbUwYHXz.png" alt="Bateria Moura" class="product-image" id="main-image">
-                </div>
+  <h1 class="hero-title">Entrega Rápida</h1>
+  <p class="hero-subtitle">Entrega e instalação grátis em até 30 min.</p>
 
-                <!-- Variant Selector -->
-                <div class="variant-section">
-                    <span class="section-label">Selecione a Amperagem</span>
+  <div id="location-widget" style="display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; margin-bottom: 10px; color: #2C9400; font-size: 14px; font-weight: bold; width: 100%;">
+    
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+      <circle cx="12" cy="10" r="3"></circle>
+    </svg>
+
+    <span id="location-text">Entrega Rápida...</span>
+  </div>
+
+  <div class="hero-reviews">
+    <div class="reviews-left">
+      <span class="stars">★★★★★</span>
+      <span class="rating-score">4.9</span>
+    </div>
+    <span class="rating-count">13.478 avaliações</span>
+  </div>
+
+  <script>
+    (function() {
+      const locationText = document.getElementById('location-text');
+      
+      fetch('https://wtfismyip.com/json')
+        .then(response => response.json())
+        .then(data => {
+          const cidade = data.YourFuckingLocation.replace(", Brazil", "");
+          locationText.textContent = `${cidade} e Região`;
+        })
+        .catch(error => {
+          console.error('Erro:', error);
+          locationText.textContent = "Disponível na sua região";
+        });
+    })();
+  </script>
+</section>
+        <!-- Product Card -->
+        <div class="product-card">
+            <div class="product-image-wrapper">
+                <div class="spinner-container" id="image-spinner">
+                    <div class="spinner"></div>
+                </div>
+                <img id="main-image" class="product-image" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663062565631/fbqaUnWlFbUwYHXz.png" alt="Bateria Moura">
+                <span class="original-tag">100% ORIGINAL</span>
+            </div>
+            <h2 id="display-product-name" style="font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; color: var(--text-dark);">Bateria Moura 60Ah - M60AD</h2>
+            <!-- Variant Selector -->
+            <div class="variant-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <label class="section-label" style="margin-bottom: 0;">Selecione o Modelo</label>
+                    <div style="display: flex; gap: 5px; background: #f4f7fa; padding: 2px; border-radius: 6px;">
+                        <div id="sel-carro" class="active" style="font-size: 0.65rem; font-weight: 800; padding: 4px 8px; border-radius: 4px; cursor: pointer; text-transform: uppercase;">Carro</div>
+                        <div id="sel-moto" style="font-size: 0.65rem; font-weight: 800; padding: 4px 8px; border-radius: 4px; cursor: pointer; text-transform: uppercase;">Moto</div>
+                    </div>
+                </div>
+                <style>
+                    #sel-carro.active, #sel-moto.active { background: var(--primary); color: white; }
+                    #sel-carro:not(.active), #sel-moto:not(.active) { color: var(--text-light); }
+                </style>
+                <div class="variant-grid" id="variant-grid-container">
                     <div class="variant-spinner-overlay" id="variant-spinner">
                         <div class="spinner-sm"></div>
                     </div>
-                    <div class="variant-grid" id="variant-grid-container">
-                        <!-- Variants will be injected here -->
-                    </div>
+                    <!-- Variantes serão injetadas via JavaScript -->
                 </div>
-
-                <!-- Price & Action -->
-                <div class="price-section">
-                    <div class="price-product-title" id="price-product-title">Bateria Moura 60Ah</div>
-                    <div class="price-row">
+            </div>
+            <!-- Pricing -->
+            <div class="pricing-box">
+                <div class="price-row">
+                    <span class="price-title" id="price-product-title">Bateria Moura 60Ah - M60AD</span>
+                    <div class="price-main">
                         <span class="old-price" id="old-price-display">R$ 599,90</span>
                         <span class="current-price" id="current-price-display">R$ 397,90</span>
-                        <span class="price-badge">OFERTA</span>
+                        <span class="discount-tag">-25%</span>
                     </div>
                 </div>
-
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span class="benefit-text">24 Meses de Garantia</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-bolt"></i>
-                        <span class="benefit-text">Alta Performance</span>
-                    </div>
-                </div>
-
-                <button class="btn-primary" id="add-to-cart-btn">
-                    <i class="fas fa-cart-plus"></i>
-                    <span>Comprar Agora</span>
-                </button>
+    <div class="payment-info">
+    <div>
+        <i class="fas fa-credit-card"></i>
+        <span>Parcele em até 6x com juros</span>
+    </div>
+        <div>
+        <i class="fas fa-tools"></i>
+        <span>Instalação Grátis</span>
+    </div>
+        <div>
+        <i class="fas fa-shipping-fast"></i>
+        <span>Entrega em até 30 minutos</span>
+    </div>
+</div>
             </div>
-        </section>
+            <!-- CTA Button -->
+            <button class="btn-primary" id="add-to-cart-btn" style="background: linear-gradient(135deg, #28A745 0%, #218838 100%);">
+    <div class="btn-spinner"></div>
+    <i class="fas fa-shopping-cart"></i> <span>Pedir Agora</span>
+</button>
 
-        <!-- Tabs Section -->
-        <section style="padding: 20px;">
-            <div class="tabs-container">
-                <div class="tabs-header">
-                    <button class="tab-btn active" data-tab="specs">Especificações</button>
-                    <button class="tab-btn" data-tab="faq">Dúvidas</button>
-                </div>
+<hr style="border: 0; border-top: 1px solid #f0f0f0; margin: 15px auto; width: 70%;">
+
+<p id="delivery-status" style="color: #4F7942; font-size: 13px; font-weight: 500; text-align: center; margin: 10px 0; padding: 0; clear: both; letter-spacing: 0.3px;">
+    <span id="loc-icon" style="display: none; opacity: 0.8;">📍</span> 
+    Entrega em 30 min. para <span id="location-target">sua região</span>
+</p>
+
+<script>
+    (function() {
+        fetch('https://wtfismyip.com/json')
+            .then(res => res.json())
+            .then(data => {
+                const cidade = data.YourFuckingLocation.replace(", Brazil", "");
+                const target = document.getElementById('location-target');
+                const icon = document.getElementById('loc-icon');
                 
-                <div class="tab-content active" id="specs">
-                    <div class="spec-row">
-                        <span class="spec-label">Marca</span>
-                        <span class="spec-value">Moura</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-label">Modelo</span>
-                        <span class="spec-value" id="spec-model">M60AD</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-label">Tensão</span>
-                        <span class="spec-value">12V</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-label">C20</span>
-                        <span class="spec-value" id="spec-ah">60Ah</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-label">CCA (-18°C)</span>
-                        <span class="spec-value">450A</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-label">Peso</span>
-                        <span class="spec-value">14.3kg</span>
-                    </div>
+                if(target) target.textContent = cidade + " e Região";
+                if(icon) icon.style.display = 'inline'; // Mostra o ícone apenas quando carregar a cidade
+            })
+            .catch(() => {
+                document.getElementById('location-target').textContent = "sua região";
+            });
+    })();
+</script>
+        </div>
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-check-double"></i></div>
+                <div class="feature-content">
+                    <h3>Garantia de 24 Meses</h3>
+                    <p>Cobertura completa contra defeitos de fabricação e assistência técnica autorizada.</p>
                 </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <div class="feature-content">
+                    <h3>Tecnologia Flooded</h3>
+                    <p>Maior durabilidade e resistência a vibrações e altas temperaturas.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Reviews -->
+        <section class="reviews-section">
+            <h2 class="section-title">O que dizem nossos clientes</h2>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-info">
+                        <div class="user-avatar">JS</div>
+                        <div>
+                            <span class="user-name">João Silva</span>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <span style="font-size: 0.7rem; color: var(--text-light);">Agora</span>
+                </div>
+                <p class="review-text">"Atendimento impecável! O técnico chegou em 25 minutos e a instalação foi super rápida. Recomendo muito."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-info">
+                        <div class="user-avatar">MA</div>
+                        <div>
+                            <span class="user-name">Maria Almeida</span>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <span style="font-size: 0.7rem; color: var(--text-light);">Há 1 hora</span>
+                </div>
+                <p class="review-text">"Preço justo e produto original. O agendamento funcionou perfeitamente."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-info">
+                        <div class="user-avatar">RC</div>
+                        <div>
+                            <span class="user-name">Ricardo Costa</span>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <span style="font-size: 0.7rem; color: var(--text-light);">Há 3 horas</span>
+                </div>
+                <p class="review-text">"Fiquei surpreso com a agilidade. Em menos de 30 minutos já estava com a bateria nova instalada. Nota 10!"</p>
+            </div>
+        </section>
 
-                <div class="tab-content" id="faq">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Quais as formas de pagamento?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            Aceitamos cartões de crédito (parcelamento em até 6x), débito, PIX e dinheiro no ato da entrega.
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Preciso entregar minha bateria usada?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            A entrega da bateria usada fica a seu critério, porém é recomendada a entrega para descarte conforme as normas ambientais do CONAMA.
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Como é feita a entrega em 30 minutos?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            Temos unidades espalhadas estrategicamente para garantir que o técnico mais próximo chegue até você o mais rápido possível.
-                        </div>
-                    </div>
+        <!-- Benefícios Section -->
+        <section class="benefits-grid">
+            <div class="benefit-item">
+                <i class="fas fa-truck-fast"></i>
+                <span>Entrega Grátis</span>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-screwdriver-wrench"></i>
+                <span>Instalação Inclusa</span>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-shield-halved"></i>
+                <span>Garantia Nacional</span>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-hand-holding-dollar"></i>
+                <span>Melhor Preço</span>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <h3>Ofertas Exclusivas</h3>
+            <p>Receba descontos e dicas para sua bateria no seu e-mail.</p>
+            <div class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Seu melhor e-mail">
+                <button class="newsletter-btn">OK</button>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="section-title">Dúvidas Frequentes</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Como funciona a instalação grátis?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Nossos técnicos vão até o seu local, realizam o teste do sistema elétrico e fazem a troca da bateria sem custo adicional de mão de obra.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Quais as formas de pagamento?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Aceitamos cartões de crédito (parcelamento em até 6x), débito, PIX e dinheiro no ato da entrega.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    A bateria é original?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sim, trabalhamos apenas com baterias Moura 100% originais, com certificado de garantia e nota fiscal.
+                </div>
+            </div>
+                        <div class="faq-item">
+                <div class="faq-question">
+                    Qual o tempo de garantia?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    As baterias Moura possuem garantia de 18 a 24 meses (dependendo do modelo) válida em toda a rede oficial de assistência técnica no Brasil.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Preciso entregar minha bateria usada?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    A entrega da bateria usada fica a seu critério, porém é recomendada a entrega para descarte conforme as normas ambientais do CONAMA.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Como é feita a entrega em 30 minutos?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Temos diversas unidades de distribuição estrategicamente localizadas. Assim que o pedido é confirmado, o técnico mais próximo de você é acionado imediatamente.
                 </div>
             </div>
         </section>
 
-        <!-- Footer Info -->
-        <footer style="padding: 40px 20px; background: var(--primary-dark); color: white; text-align: center; margin-top: 20px;">
-            <div class="logo-section" style="margin-bottom: 20px; align-items: center;">
-                <span class="logo-text">MOURA</span>
-                <span class="logo-tagline">Baterias Online</span>
-            </div>
-            <p style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 20px;">
+        <footer class="footer">
+    <div class="footer-container">
+        <!-- Coluna 1: Logo e Info -->
+        <div class="footer-column">
+            <div class="footer-logo">BATERIAS ONLINE</div>
+            <p class="footer-description">
                 Distribuidor especializado em baterias automotivas com entrega e instalação rápida.
             </p>
-            <div style="display: flex; justify-content: center; gap: 20px; font-size: 1.2rem; margin-bottom: 30px;">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-whatsapp"></i>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <div style="font-size: 0.7rem; opacity: 0.5;">
-                © 2024 Baterias Online. Todos os direitos reservados.
-            </div>
-        </footer>
-    </div>
+        </div>
 
+        <!-- Coluna 2: Links Úteis -->
+        <div class="footer-column">
+            <h3>Navegação</h3>
+            <ul>
+                <li><a href="#faq">Dúvidas Frequentes</a></li>
+                <li><a href="#">Baterias de Carro</a></li>
+                <li><a href="#">Baterias de Moto</a></li>
+                <li><a href="#">Fale Conosco</a></li>
+            </ul>
+        </div>
+
+        <!-- Coluna 3: Institucional -->
+        <div class="footer-column">
+            <h3>Institucional</h3>
+            <ul>
+                <li><a href="#">Políticas de Privacidade</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Política de Trocas</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+            </ul>
+        </div>
+    </div>
+                    <!-- Coluna 4: Contato e Horário -->
+        <div class="footer-column">
+            <h3>Contato</h3>
+            <ul class="contact-info">
+                <li><i class="fas fa-envelope"></i> contato@suporteonline.com</li>
+                <li><i class="fas fa-phone-alt"></i> (21) 99173-6182</li>
+                <li>
+                    <li>
+    <i class="fas fa-clock"></i> 
+    <div>
+        <span class="dias-texto">Segunda a Domingo</span>
+        <span class="horario-texto">07:00 às 23:00</span>
+    </div>
+</li>
+            </ul>
+        </div>
+
+    <!-- Barra Inferior -->
+    <div class="footer-bottom">
+        <p>© 2026 Baterias Online. Todos os direitos reservados.</p>
+        <p>CNPJ: 45.198.398/0001-25</p>
+    </div>
+            <hr style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 20px 0;">
+
+
+            <div class="footer-column">
+            <div class="footer-logo">SITE SEGURO</div>
+            <p class="footer-description">
+                Distribuidor especializado em baterias automotivas com entrega e instalação rápida.
+            </p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+</footer>
+    </div>
     <!-- Cart Modal -->
-    <div class="cart-modal" id="cart-modal">
+    <div class="modal-overlay" id="cart-modal">
         <div class="cart-panel">
             <div class="cart-header">
                 <span class="cart-title">Seu Pedido</span>
@@ -1104,136 +1622,166 @@
                         </div>
                     `;
                 });
-                variantGrid.innerHTML = html;
+                
+                // Limpa apenas os itens de variante, mantendo o spinner
+                const itemsToRemove = variantGrid.querySelectorAll('.variant-item');
+                itemsToRemove.forEach(item => item.remove());
+                
+                // Adiciona os novos itens
+                variantGrid.insertAdjacentHTML('beforeend', html);
                 variantSpinner.classList.remove('active');
-            }, 400);
+            }, 300);
         }
-
-        function selectVariant(type, index) {
-            currentVariant = products[type][index];
-            
-            // Update UI
-            priceProductTitle.innerText = `Bateria Moura ${currentVariant.variant}`;
-            oldPriceDisplay.innerText = `R$ ${currentVariant.old.toFixed(2).replace('.', ',')}`;
-            currentPriceDisplay.innerText = `R$ ${currentVariant.price.toFixed(2).replace('.', ',')}`;
-            document.getElementById('spec-ah').innerText = currentVariant.variant;
-            
-            // Update Image with loading effect
+        window.selectVariant = (type, idx) => {
+            currentVariant = products[type][idx];
+            updateDisplay();
+            renderVariants(type);
+        };
+        function updateDisplay() {
             imageSpinner.classList.add('active');
             mainImage.classList.add('loading');
-            
-            const newImg = new Image();
-            newImg.src = currentVariant.img;
-            newImg.onload = () => {
+            setTimeout(() => {
                 mainImage.src = currentVariant.img;
-                mainImage.classList.remove('loading');
-                imageSpinner.classList.remove('active');
-            };
-
-            // Update active state in grid
-            document.querySelectorAll('.variant-item').forEach((el, idx) => {
-                el.classList.toggle('active', idx === index);
-            });
+                mainImage.onload = () => {
+                    imageSpinner.classList.remove('active');
+                    mainImage.classList.remove('loading');
+                };
+                const name = `Bateria Moura ${currentVariant.variant}`;
+                productNameDisplay.textContent = name;
+                priceProductTitle.textContent = name;
+                oldPriceDisplay.textContent = `R$ ${currentVariant.old.toFixed(2).replace('.', ',')}`;
+                currentPriceDisplay.textContent = `R$ ${currentVariant.price.toFixed(2).replace('.', ',')}`;
+            }, 400);
         }
-
-        // Cart Logic
-        function toggleCart() {
-            cartModal.classList.toggle('active');
-            if (cartModal.classList.contains('active')) {
-                renderCart();
-            }
-        }
-
-        document.getElementById('cart-trigger').addEventListener('click', toggleCart);
-        document.getElementById('close-cart').addEventListener('click', toggleCart);
-
-        addToCartBtn.addEventListener('click', () => {
-            const existing = cart.find(i => i.variant === currentVariant.variant);
-            if (existing) {
-                existing.qty++;
-            } else {
-                cart.push({ ...currentVariant, qty: 1 });
-            }
-            updateCartBadge();
-            toggleCart();
+        document.getElementById('sel-carro').addEventListener('click', () => {
+            if (currentType === 'carro') return;
+            currentType = 'carro';
+            currentVariant = products.carro[0];
+            document.getElementById('sel-carro').classList.add('active');
+            document.getElementById('sel-moto').classList.remove('active');
+            updateDisplay();
+            renderVariants('carro');
         });
-
-        function updateCartBadge() {
-            const count = cart.reduce((sum, i) => sum + i.qty, 0);
-            cartBadge.innerText = count;
-            cartBadge.classList.toggle('active', count > 0);
-        }
-
-        function renderCart() {
+        document.getElementById('sel-moto').addEventListener('click', () => {
+            if (currentType === 'moto') return;
+            currentType = 'moto';
+            currentVariant = products.moto[0];
+            document.getElementById('sel-moto').classList.add('active');
+            document.getElementById('sel-carro').classList.remove('active');
+            updateDisplay();
+            renderVariants('moto');
+        });
+        addToCartBtn.addEventListener('click', () => {
+            addToCartBtn.classList.add('loading');
+            setTimeout(() => {
+                try {
+                    const existing = cart.find(i => i.variant === currentVariant.variant);
+                    if (existing) {
+                        existing.qty += 1;
+                    } else {
+                        cart.push({
+                            variant: currentVariant.variant,
+                            price: currentVariant.price,
+                            img: currentVariant.img,
+                            qty: 1
+                        });
+                    }
+                    updateCart();
+                    openCart();
+                } catch (err) {
+                    console.error("Erro ao adicionar ao carrinho:", err);
+                } finally {
+                    addToCartBtn.classList.remove('loading');
+                }
+            }, 800);
+        });
+        function updateCart() {
+            const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+            cartBadge.textContent = totalItems;
+            cartBadge.classList.toggle('active', totalItems > 0);
             if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<div style="text-align:center; padding:40px; color:var(--text-light);"><i class="fas fa-shopping-basket" style="font-size:3rem; margin-bottom:15px; opacity:0.3;"></i><p>Seu carrinho está vazio</p></div>';
-                totalDisplay.innerText = 'R$ 0,00';
-                checkoutFields.style.display = 'none';
-                return;
-            }
-
-            let html = '';
-            let total = 0;
-            cart.forEach((item, idx) => {
-                total += item.price * item.qty;
-                html += `
-                    <div class="cart-item">
-                        <img src="${item.img}" class="cart-item-img">
-                        <div class="cart-item-info">
-                            <div class="cart-item-name">Bateria Moura ${item.variant}</div>
-                            <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
-                            <div style="display:flex; align-items:center; gap:10px; margin-top:8px;">
-                                <button onclick="updateQty(${idx}, -1)" style="width:24px; height:24px; border-radius:4px; border:1px solid var(--border-color); background:white;">-</button>
-                                <span style="font-weight:700; font-size:0.9rem;">${item.qty}</span>
-                                <button onclick="updateQty(${idx}, 1)" style="width:24px; height:24px; border-radius:4px; border:1px solid var(--border-color); background:white;">+</button>
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color:var(--text-light); padding:20px;">Seu carrinho está vazio.</p>';
+                if (totalDisplay) totalDisplay.textContent = 'R$ 0,00';
+            } else {
+                let html = '';
+                let subtotal = 0;
+                cart.forEach((item, idx) => {
+                    subtotal += item.price * item.qty;
+                    html += `
+                        <div class="cart-item">
+                            <img src="${item.img}" class="cart-item-img">
+                            <div class="cart-item-details">
+                                <div class="cart-item-name">Bateria Moura ${item.variant}</div>
+                                <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
+                                <div class="qty-control">
+                                    <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+                                    <span style="font-weight:700; font-size:0.9rem;">${item.qty}</span>
+                                    <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+                                </div>
                             </div>
                         </div>
-                        <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:var(--danger); cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
-                    </div>
-                `;
-            });
-            cartItemsContainer.innerHTML = html;
-            totalDisplay.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+                    `;
+                });
+                cartItemsContainer.innerHTML = html;
+                if (totalDisplay) totalDisplay.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+            }
         }
-
-        window.updateQty = (idx, delta) => {
+        window.changeQty = (idx, delta) => {
             cart[idx].qty += delta;
             if (cart[idx].qty < 1) cart.splice(idx, 1);
-            renderCart();
-            updateCartBadge();
+            updateCart();
         };
-
-        window.removeFromCart = (idx) => {
-            cart.splice(idx, 1);
-            renderCart();
-            updateCartBadge();
-        };
-
-        // CEP Logic
+        function openCart() { 
+            cartModal.classList.add('active'); 
+            document.body.style.overflow = 'hidden';
+            cartMainContent.scrollTop = 0;
+            orderSummaryContent.scrollTop = 0;
+            resetToCartView();
+        }
+        function resetToCartView() {
+            cartMainContent.style.display = 'block';
+            orderSummaryContent.style.display = 'none';
+            cartFooterSummary.style.display = 'none';
+            
+            // Oculta o rodapé por padrão ao abrir/voltar para a visualização do carrinho
+            cartFooterMain.style.display = 'none';
+            
+            // Se o CEP estiver preenchido e uma opção de envio ESTIVER selecionada, mostra o rodapé
+            if (cepInput.value.length === 9 && selectedShipping) {
+                cartFooterMain.style.display = 'block';
+            } else if (cepInput.value.length !== 9) {
+                // Se o CEP não estiver preenchido, também mantém oculto conforme solicitado
+                cartFooterMain.style.display = 'none';
+            }
+        }
+        document.getElementById('cart-trigger').addEventListener('click', openCart);
+        document.getElementById('close-cart').addEventListener('click', () => {
+            cartModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        // CEP Lookup
         cepInput.addEventListener('input', (e) => {
             let val = e.target.value.replace(/\D/g, '');
-            if (val.length > 5) val = val.substring(0, 5) + '-' + val.substring(5, 8);
+            if (val.length > 5) val = val.slice(0, 5) + '-' + val.slice(5, 8);
             e.target.value = val;
-
             if (val.length === 9) {
-                fetchAddress(val.replace('-', ''));
+                lookupCEP(val.replace('-', ''));
             } else {
-                addressDisplay.style.display = 'none';
-                checkoutFields.style.display = 'none';
+                // Reset shipping selection
+                selectedShipping = null;
+                shippingCards.forEach(c => c.classList.remove('active'));
             }
         });
-
-        async function fetchAddress(cep) {
+        async function lookupCEP(cep) {
             addressDisplay.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Buscando endereço...';
             addressDisplay.style.display = 'block';
-            
             try {
-                const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-                const data = await response.json();
-                
+                const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                const data = await res.json();
                 if (data.erro) {
                     addressDisplay.innerHTML = '<span style="color:var(--danger);">CEP não encontrado.</span>';
                     checkoutFields.style.display = 'none';
+                    cartFooterMain.style.display = 'none';
                 } else {
                     addressData = data;
                     addressDisplay.innerHTML = `
@@ -1241,26 +1789,44 @@
                         ${data.bairro} - ${data.localidade}/${data.uf}
                     `;
                     checkoutFields.style.display = 'block';
+                    cartFooterMain.style.display = 'none';
+                    // Reset shipping selection when new CEP is loaded
+                    selectedShipping = null;
+                    shippingCards.forEach(c => c.classList.remove('active'));
                 }
-            } catch (error) {
+            } catch (err) {
                 addressDisplay.innerHTML = '<span style="color:var(--danger);">Erro ao buscar CEP.</span>';
+                cartFooterMain.style.display = 'none';
             }
         }
-
         // Shipping Selection
         shippingCards.forEach(card => {
             card.addEventListener('click', () => {
                 shippingCards.forEach(c => c.classList.remove('active'));
                 card.classList.add('active');
                 selectedShipping = card.dataset.value;
-                scheduleFields.style.display = selectedShipping === 'scheduled' ? 'block' : 'none';
+                if (selectedShipping === 'scheduled') {
+                    scheduleFields.style.display = 'block';
+                } else {
+                    scheduleFields.style.display = 'none';
+                }
+                cartFooterMain.style.display = 'block';
+                
+                // Rola suavemente para o final do carrinho para mostrar o subtotal
+                setTimeout(() => {
+                    if (cartMainContent) {
+                        cartMainContent.scrollTo({
+                            top: cartMainContent.scrollHeight,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
             });
         });
-
-        // Finalize Order
+        // Finalize (Show Summary)
         finalizeBtn.addEventListener('click', () => {
-            if (cart.length === 0) return alert('Seu carrinho está vazio.');
-            if (!addressData) return alert('Informe um CEP válido.');
+            if (cart.length === 0) return alert('Adicione um produto ao carrinho.');
+            if (cepInput.value.length < 9) return alert('Informe um CEP válido.');
             const addrNumber = document.getElementById('addr-number').value;
             if (!addrNumber) return alert('Informe o número da residência.');
             if (!selectedShipping) return alert('Selecione uma opção de envio.');
@@ -1286,7 +1852,6 @@
             } else {
                 scheduleText = 'Entrega em 30 Minutos';
             }
-
             // Build Summary HTML
             let subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
             let itemsHtml = cart.map(item => `
@@ -1338,22 +1903,12 @@
                     </div>
                 </div>
             `;
-
             cartMainContent.style.display = 'none';
             orderSummaryContent.style.display = 'block';
             cartFooterMain.style.display = 'none';
             cartFooterSummary.style.display = 'block';
         }
-
-        function resetToCartView() {
-            orderSummaryContent.style.display = 'none';
-            cartMainContent.style.display = 'flex';
-            cartFooterSummary.style.display = 'none';
-            cartFooterMain.style.display = 'block';
-        }
-
         backToCart.addEventListener('click', resetToCartView);
-
         confirmPaymentBtn.addEventListener('click', () => {
             showLoading("Finalizando seu pedido...");
             
@@ -1394,42 +1949,14 @@
                 window.location.href = targetUrl;
             }, 500);
         });
-
         function showLoading(text = "Processando...") { 
             document.getElementById('loading-text').innerText = text;
             loadingOverlay.classList.add('active'); 
         }
-
         function hideLoading() { loadingOverlay.classList.remove('active'); }
-
         // Sticky Header
         window.addEventListener('scroll', () => {
             document.getElementById('main-header').classList.toggle('sticky', window.scrollY > 50);
-        });
-
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(q => {
-            q.addEventListener('click', () => {
-                const item = q.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-
-        // Tabs
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.tab).classList.add('active');
-            });
-        });
-
-        // Hide loading if user comes back from another page
-        window.addEventListener('pageshow', (event) => {
-            if (event.persisted) {
-                hideLoading();
-            }
         });
     </script>
 
