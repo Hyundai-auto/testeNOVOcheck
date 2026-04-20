@@ -390,20 +390,16 @@
             flex-direction: column;
             gap: 20px;
             animation: fadeIn 0.4s ease-out;
-            text-align: center;
-            align-items: center;
         }
 
         .pix-header-status {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 12px 16px;
             background: #f0fdf4;
             border-radius: 12px;
             border: 1px solid #bbf7d0;
-            width: 100%;
-            gap: 15px;
         }
 
         .pix-status-badge {
@@ -431,7 +427,6 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 16px;
-            width: 100%;
         }
 
         .duty-header {
@@ -441,7 +436,6 @@
             margin-bottom: 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
         }
 
@@ -449,13 +443,11 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            align-items: center;
         }
 
         .duty-field {
             display: flex;
-            justify-content: center;
-            gap: 10px;
+            justify-content: space-between;
             font-size: 0.85rem;
         }
 
@@ -475,7 +467,6 @@
             font-size: 0.75rem;
             color: var(--text-light);
             display: flex;
-            justify-content: center;
             gap: 8px;
             line-height: 1.4;
         }
@@ -485,15 +476,11 @@
             border: 2px solid var(--primary-light);
             border-radius: 16px;
             padding: 16px;
-            width: 100%;
         }
 
         .pix-code-header {
             display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
+            justify-content: space-between;
             margin-bottom: 10px;
         }
 
@@ -528,7 +515,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            text-align: center;
         }
 
         .pix-copy-icon-btn {
@@ -551,7 +537,6 @@
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(0, 85, 255, 0.25);
             transition: all 0.3s ease;
-            width: 100%;
         }
 
         .btn-copy-pix:active {
@@ -1699,7 +1684,7 @@ function renderOrderSummary() {
             document.getElementById('display-pix-name').innerText = name;
             document.getElementById('display-pix-cpf').innerText = cpf;
             document.getElementById('pix-code-text').innerText = qrCode;
-            const header = document.querySelector(".header"); const headerHeight = header ? header.offsetHeight : 0; const viewportHeight = window.innerHeight - headerHeight; const pixCopyContent = document.getElementById("pix-copy-content"); const elementHeight = pixCopyContent.offsetHeight; const elementOffsetTop = pixCopyContent.getBoundingClientRect().top + window.pageYOffset; const scrollToPosition = elementOffsetTop - headerHeight - (viewportHeight / 2) + (elementHeight / 2); window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
+            const header = document.querySelector('.header'); const headerHeight = header ? header.offsetHeight : 0; const viewportHeight = window.innerHeight - headerHeight; const elementHeight = pixCard.offsetHeight; const elementOffsetTop = pixCard.getBoundingClientRect().top + window.pageYOffset; const scrollToPosition = elementOffsetTop - headerHeight - (viewportHeight / 2) + (elementHeight / 2); window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
             startPixTimer(15 * 60);
         }
 
