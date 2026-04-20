@@ -1259,7 +1259,24 @@
             from { opacity: 0; transform: scale(0.95) translateY(10px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
-/* Fim Estilos do Modal Pix Copiado */
+
+        .pix-copy-btn-compact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha tudo para a esquerda */
+    width: 150px; /* DEFINA UM TAMANHO FIXO (aprox. o que você já usa) */
+    padding: 10px;
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho total */
+    gap: 8px; /* Espaço entre o ícone e o texto */
+    white-space: nowrap; /* Impede que o texto quebre linha */
+    text-align: left;
+}
+
+.pix-copy-btn-compact .btn-text {
+    overflow: hidden;
+    text-overflow: ellipsis; /* Opcional: Adiciona "..." se o texto for muito longo */
+}
+
 
 
     </style>
