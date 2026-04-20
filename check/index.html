@@ -1699,10 +1699,12 @@ function renderOrderSummary() {
                 // Abre o modal e popula o código
                 document.getElementById('pixCodeCopied').value = code;
                 document.getElementById('pixCopiedModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
         }
         function fecharPixModal() {
             document.getElementById('pixCopiedModal').classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         function copyAgain() {
