@@ -1677,6 +1677,7 @@ function renderOrderSummary() {
                     selectedPaymentType = 'pix';
                     pixCard.classList.add('selected');
                     deliveryCard.classList.remove('selected');
+                    pixCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 } else if (e.target.closest('#btn-generate-pix')) {
                     generatePix();
                 }
