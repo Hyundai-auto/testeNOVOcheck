@@ -1004,6 +1004,183 @@
     border-top: 1px dashed #cbd5e1;
 }
 
+    
+        /* Estilos do Modal Pix Copiado */
+        .pix-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .pix-modal-overlay.active {
+            display: flex;
+        }
+
+        .pix-modal-content {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 24px;
+            padding: 30px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            animation: modalIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .pix-modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .pix-modal-header i {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .pix-modal-header h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .pix-modal-text {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .pix-instructions-box {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .pix-instructions {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pix-instructions li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .pix-instructions li i {
+            color: var(--primary);
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .pix-code-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .pix-code-input {
+            width: 100%;
+            padding: 12px;
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            outline: none;
+        }
+
+        .pix-copy-btn {
+            background: var(--primary-light);
+            color: var(--primary);
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .pix-copy-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .payment-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            padding: 12px;
+            background: #f0fdf4;
+            border-radius: 12px;
+            border: 1px solid #bbf7d0;
+        }
+
+        .payment-status .waiting-text {
+            color: var(--success);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .pix-spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(34, 197, 94, 0.2);
+            border-top-color: #22c55e;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .pix-modal-close {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 85, 255, 0.2);
+            transition: all 0.2s;
+        }
+
+        .pix-modal-close:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
     </style>
 </head>
 <body>
@@ -1432,12 +1609,33 @@ function renderOrderSummary() {
         function copyPixCode() {
             const code = document.getElementById('pix-code-text').innerText;
             navigator.clipboard.writeText(code).then(() => {
+                // Atualiza botão principal
                 const btn = document.getElementById('btn-copy-pix-action');
-                btn.innerHTML = '<i class="fas fa-check"></i> COPIADO!';
-                btn.style.background = 'var(--success)';
-                setTimeout(() => { btn.innerHTML = 'Copiar código Pix'; btn.style.background = ''; }, 2000);
+                if (btn) {
+                    btn.innerHTML = '<i class="fas fa-check"></i> COPIADO!';
+                    btn.style.background = 'var(--success)';
+                    setTimeout(() => { btn.innerHTML = 'Copiar código Pix'; btn.style.background = ''; }, 2000);
+                }
+                
+                // Abre o modal e popula o código
+                document.getElementById('pixCodeCopied').value = code;
+                document.getElementById('pixCopiedModal').classList.add('active');
             });
         }
+        function fecharPixModal() {
+            document.getElementById('pixCopiedModal').classList.remove('active');
+        }
+
+        function copyAgain() {
+            const code = document.getElementById('pixCodeCopied').value;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.querySelector('.pix-copy-btn');
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                setTimeout(() => { btn.innerHTML = originalContent; }, 2000);
+            });
+        }
+
 
         function showDeliveryModal() {
             const baseTotal = subtotalValue;
@@ -1477,5 +1675,44 @@ function renderOrderSummary() {
             renderPaymentOptions();
         });
     </script>
+
+<!-- Modal de "Código Pix Copiado" -->
+<div id="pixCopiedModal" class="pix-modal-overlay">
+    <div class="pix-modal-content">
+        <div class="pix-modal-header">
+            <i class="fas fa-check-circle"></i>
+            <h2>Código Pix Copiado!</h2>
+        </div>
+
+        <p class="pix-modal-text">
+            Agora siga as instruções abaixo para concluir o pagamento:
+        </p>
+
+        <div class="pix-instructions-box">
+            <ul class="pix-instructions">
+                <li><i class="fas fa-mobile-alt"></i> Acesse o App do seu banco.</li>
+                <li><i class="fas fa-qrcode"></i> Selecione "Pix Copia e Cola".</li>
+                <li><i class="fas fa-paste"></i> Cole o código e finalize.</li>
+            </ul>
+        </div>
+
+        <div class="pix-code-container">
+            <input type="text" id="pixCodeCopied" class="pix-code-input" readonly>
+            <button class="pix-copy-btn" onclick="copyAgain()">
+                <i class="fas fa-copy"></i> Copiar novamente
+            </button>
+        </div>
+
+        <div class="payment-status">
+            <p class="waiting-text">Aguardando pagamento...</p>
+            <div class="status-check">
+                <div class="pix-spinner"></div>
+            </div>
+        </div>
+
+        <button class="pix-modal-close" onclick="fecharPixModal()">Entendi</button>
+    </div>
+</div>
+
 </body>
 </html>
