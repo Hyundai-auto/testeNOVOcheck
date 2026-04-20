@@ -1006,6 +1006,262 @@
 
     
         /* Estilos do Modal Pix Copiado */
+        /* Design Premium e Alta Credibilidade para o Modal Pix */
+        .pix-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7); /* Azul marinho profundo e elegante */
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .pix-modal-overlay.active {
+            display: flex;
+        }
+
+        .pix-modal-content {
+            background: white;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 28px;
+            padding: 32px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pix-modal-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .success-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: #f0fdf4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+
+        .success-icon-wrapper i {
+            font-size: 2.5rem;
+            color: #22c55e;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid #22c55e;
+            animation: pulse 2s infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        .pix-modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #eff6ff;
+            color: #2563eb;
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        .pix-modal-text {
+            text-align: center;
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .pix-instructions-box {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .pix-instructions {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .pix-instructions li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.9rem;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            background: #0055ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .pix-code-container {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 16px;
+            padding: 12px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .pix-code-input {
+            width: 100%;
+            padding: 8px;
+            background: transparent;
+            border: none;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.8rem;
+            color: #64748b;
+            outline: none;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .pix-copy-btn-enhanced {
+            width: 100%;
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .pix-copy-btn-enhanced:hover {
+            background: #1e293b;
+            transform: translateY(-2px);
+        }
+
+        .payment-status-premium {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 16px;
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 24px;
+        }
+
+        .status-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .premium-spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #e2e8f0;
+            border-top-color: #0055ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .trust-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+            margin-top: 16px;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.7rem;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .trust-badge i {
+            color: #22c55e;
+        }
+
+        .pix-modal-close-premium {
+            width: 100%;
+            padding: 18px;
+            background: #0055ff;
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 15px -3px rgba(0, 85, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .pix-modal-close-premium:hover {
+            background: #0044cc;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 85, 255, 0.4);
+        }
+/* Fim Estilos do Modal Pix Copiado */
         .pix-modal-overlay {
             position: fixed;
             top: 0;
@@ -1629,7 +1885,7 @@ function renderOrderSummary() {
         function copyAgain() {
             const code = document.getElementById('pixCodeCopied').value;
             navigator.clipboard.writeText(code).then(() => {
-                const btn = document.querySelector('.pix-copy-btn');
+                const btn = document.querySelector('.pix-copy-btn-enhanced');
                 const originalContent = btn.innerHTML;
                 btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
                 setTimeout(() => { btn.innerHTML = originalContent; }, 2000);
@@ -1677,42 +1933,54 @@ function renderOrderSummary() {
     </script>
 
 <!-- Modal de "Código Pix Copiado" -->
+<!-- Modal de "Código Pix Copiado" de Alta Conversão -->
 <div id="pixCopiedModal" class="pix-modal-overlay">
     <div class="pix-modal-content">
         <div class="pix-modal-header">
-            <i class="fas fa-check-circle"></i>
+            <div class="success-icon-wrapper">
+                <div class="pulse-ring"></div>
+                <i class="fas fa-check-circle"></i>
+            </div>
             <h2>Código Pix Copiado!</h2>
+            <div class="security-badge">
+                <i class="fas fa-shield-alt"></i> Pagamento 100% Seguro
+            </div>
         </div>
 
         <p class="pix-modal-text">
-            Agora siga as instruções abaixo para concluir o pagamento:
+            Seu pedido está reservado. Siga os passos para confirmar o pagamento:
         </p>
 
         <div class="pix-instructions-box">
             <ul class="pix-instructions">
-                <li><i class="fas fa-mobile-alt"></i> Acesse o App do seu banco.</li>
-                <li><i class="fas fa-qrcode"></i> Selecione "Pix Copia e Cola".</li>
-                <li><i class="fas fa-paste"></i> Cole o código e finalize.</li>
+                <li><span class="step-number">1</span> Acesse o App do seu banco</li>
+                <li><span class="step-number">2</span> Escolha "Pix" e "Copia e Cola"</li>
+                <li><span class="step-number">3</span> Cole o código e finalize</li>
             </ul>
         </div>
 
         <div class="pix-code-container">
             <input type="text" id="pixCodeCopied" class="pix-code-input" readonly>
-            <button class="pix-copy-btn" onclick="copyAgain()">
-                <i class="fas fa-copy"></i> Copiar novamente
+            <button class="pix-copy-btn-enhanced" onclick="copyAgain()">
+                <i class="fas fa-copy"></i> Copiar Novamente
             </button>
         </div>
 
-        <div class="payment-status">
-            <p class="waiting-text">Aguardando pagamento...</p>
-            <div class="status-check">
-                <div class="pix-spinner"></div>
+        <div class="payment-status-premium">
+            <div class="status-row">
+                <div class="premium-spinner"></div>
+                <span>Aguardando confirmação bancária...</span>
             </div>
         </div>
 
-        <button class="pix-modal-close" onclick="fecharPixModal()">Entendi</button>
+        <button class="pix-modal-close-premium" onclick="fecharPixModal()">ENTENDI, VOU PAGAR AGORA</button>
+
+        <div class="trust-footer">
+            <div class="trust-badge"><i class="fas fa-lock"></i> SSL Criptografado</div>
+            <div class="trust-badge"><i class="fas fa-check"></i> Compra Garantida</div>
+        </div>
     </div>
 </div>
-
+<!-- Fim Modal de "Código Pix Copiado" -->
 </body>
 </html>
