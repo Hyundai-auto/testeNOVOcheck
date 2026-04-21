@@ -1557,7 +1557,7 @@ function renderOrderSummary() {
                                         <button class="pix-copy-icon-btn" id="btn-copy-pix-quick" title="Copiar código Pix"><i class="fas fa-copy"></i></button>
                                     </div>
                                 </div>
-                                <button class="btn-copy-pix" id="btn-copy-pix-action">Copiar novamente</button>
+                                <button class="btn-copy-pix" id="btn-copy-pix-action">Copiar código Pix</button>
                                 <div class="waiting-payment-section"><div class="modern-spinner"></div><div class="waiting-text">Aguardando Pagamento</div></div>
                             </div>
                         </div>
@@ -1704,7 +1704,7 @@ function renderOrderSummary() {
                 if (btn) {
                     btn.innerHTML = '<i class="fas fa-check"></i> COPIADO!';
                     btn.style.background = 'var(--success)';
-                    setTimeout(() => { btn.innerHTML = 'Copiar novamente'; btn.style.background = ''; }, 2000);
+                    setTimeout(() => { btn.innerHTML = 'Copiar código Pix'; btn.style.background = ''; }, 2000);
                 }
                 
                 // Abre o modal e popula o código
