@@ -1162,9 +1162,11 @@
             margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             border: 2px solid #f1f5f9;
             transition: all 0.3s ease;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .pix-code-container-compact:focus-within {
@@ -1173,6 +1175,7 @@
 
         .pix-code-input-compact {
             flex: 1;
+            min-width: 0;
             background: transparent;
             border: none;
             font-family: 'JetBrains Mono', 'Courier New', monospace;
