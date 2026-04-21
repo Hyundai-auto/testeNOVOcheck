@@ -728,18 +728,18 @@
             position: absolute;
             right: 14px;
             bottom: 12px;
-            color: var(--success);
-            font-size: 1rem;
+            color: #22c55e;
+            font-size: 0.9rem;
             opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(5px);
+            transition: all 0.3s ease;
             pointer-events: none;
             z-index: 5;
         }
 
         .input-check-icon.visible {
             opacity: 1;
-            transform: scale(1);
+            transform: translateY(0);
         }
 
         .pix-input-group .input-check-icon {
@@ -1426,7 +1426,7 @@
             let checkIcon = container.querySelector('.input-check-icon');
             if (!checkIcon) {
                 checkIcon = document.createElement('i');
-                checkIcon.className = 'fas fa-check-circle input-check-icon';
+                checkIcon.className = 'fas fa-check input-check-icon';
                 container.appendChild(checkIcon);
             }
 
@@ -1453,7 +1453,7 @@
             let checkIcon = container.querySelector('.input-check-icon');
             if (!checkIcon) {
                 checkIcon = document.createElement('i');
-                checkIcon.className = 'fas fa-check-circle input-check-icon';
+                checkIcon.className = 'fas fa-check input-check-icon';
                 container.appendChild(checkIcon);
             }
 
@@ -1480,7 +1480,7 @@
             let checkIcon = container.querySelector('.input-check-icon');
             if (!checkIcon) {
                 checkIcon = document.createElement('i');
-                checkIcon.className = 'fas fa-check-circle input-check-icon';
+                checkIcon.className = 'fas fa-check input-check-icon';
                 container.appendChild(checkIcon);
             }
 
