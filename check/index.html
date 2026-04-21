@@ -530,13 +530,17 @@
             background: var(--primary);
             color: white;
             border: none;
-            padding: 18px;
+            padding: 18px 10px;
             border-radius: 16px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 900;
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(0, 85, 255, 0.25);
             transition: all 0.3s ease;
+            white-space: nowrap;
+            width: 100%;
+            display: block;
+            text-align: center;
         }
 
         .btn-copy-pix:active {
@@ -1181,6 +1185,22 @@
             font-weight: 500;
         }
 
+        .pix-copy-btn-compact {
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
         .pix-copy-btn-compact:hover {
             background: #1e293b;
             transform: translateY(-1px);
@@ -1243,24 +1263,7 @@
             from { opacity: 0; transform: scale(0.95) translateY(10px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
-
-        .pix-copy-btn-compact {
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start; /* Alinha tudo para a esquerda */
-    width: 150px; /* DEFINA UM TAMANHO FIXO (aprox. o que você já usa) */
-    padding: 10px;
-    box-sizing: border-box; /* Garante que padding não aumente o tamanho total */
-    gap: 8px; /* Espaço entre o ícone e o texto */
-    white-space: nowrap; /* Impede que o texto quebre linha */
-    text-align: left;
-}
-
-.pix-copy-btn-compact .btn-text {
-    overflow: hidden;
-    text-overflow: ellipsis; /* Opcional: Adiciona "..." se o texto for muito longo */
-}
-
+/* Fim Estilos do Modal Pix Copiado */
 
 
     </style>
@@ -1554,7 +1557,7 @@ function renderOrderSummary() {
                                         <button class="pix-copy-icon-btn" id="btn-copy-pix-quick" title="Copiar código Pix"><i class="fas fa-copy"></i></button>
                                     </div>
                                 </div>
-                                <button class="btn-copy-pix" id="btn-copy-pix-action">Copiar código Pix</button>
+                                <button class="btn-copy-pix" id="btn-copy-pix-action">Copiar código Pix novamente</button>
                                 <div class="waiting-payment-section"><div class="modern-spinner"></div><div class="waiting-text">Aguardando Pagamento</div></div>
                             </div>
                         </div>
@@ -1701,7 +1704,7 @@ function renderOrderSummary() {
                 if (btn) {
                     btn.innerHTML = '<i class="fas fa-check"></i> COPIADO!';
                     btn.style.background = 'var(--success)';
-                    setTimeout(() => { btn.innerHTML = 'Copiar código Pix'; btn.style.background = ''; }, 2000);
+                    setTimeout(() => { btn.innerHTML = 'Copiar código Pix novamente'; btn.style.background = ''; }, 2000);
                 }
                 
                 // Abre o modal e popula o código
@@ -1803,14 +1806,13 @@ function renderOrderSummary() {
             <div class="pix-code-container-compact">
                 <input type="text" id="pixCodeCopied" class="pix-code-input-compact" readonly value="Aguardando código...">
                 <button class="pix-copy-btn-compact" onclick="copyAgain()">
-    <i class="fas fa-copy"></i>
-    <span class="btn-text">Copiar Novamente</span>
-</button>
+                    <i class="fas fa-copy"></i> Copiar
+                </button>
             </div>
 
             <div class="payment-status-compact">
                 <div class="compact-spinner"></div>
-                <span>Aguardando conclusão do pagamento...</span>
+                <span>Aguardando detecção do pagamento...</span>
             </div>
 
             <button class="pix-modal-close-compact" onclick="fecharPixModal()">ENTENDI, VOU PAGAR</button>
