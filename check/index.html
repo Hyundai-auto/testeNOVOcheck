@@ -1475,6 +1475,26 @@
             });
         }
 
+        function setupNameInput(inputElement) {
+            const container = inputElement.parentElement;
+            let checkIcon = container.querySelector('.input-check-icon');
+            if (!checkIcon) {
+                checkIcon = document.createElement('i');
+                checkIcon.className = 'fas fa-check-circle input-check-icon';
+                container.appendChild(checkIcon);
+            }
+
+            inputElement.addEventListener('blur', (e) => {
+                const value = e.target.value.trim();
+                const names = value.split(/\s+/);
+                if (names.length >= 2 && names[0].length >= 2 && names[1].length >= 2) {
+                    checkIcon.classList.add('visible');
+                } else {
+                    checkIcon.classList.remove('visible');
+                }
+            });
+        }
+
         // No arquivo de checkout, localize a função renderOrderSummary() e substitua por esta:
 
 function renderOrderSummary() {
@@ -1639,6 +1659,8 @@ function renderOrderSummary() {
             `;
 
             document.getElementById('cart-content-wrapper').innerHTML = paymentHTML;
+            const pixNameInput = document.getElementById('pix-name');
+            if (pixNameInput) setupNameInput(pixNameInput);
             const pixCpfInput = document.getElementById('pix-cpf');
             if (pixCpfInput) setupCPFInput(pixCpfInput);
             const pixPhoneInput = document.getElementById('pix-phone');
@@ -1819,6 +1841,8 @@ function renderOrderSummary() {
         });
 
         // Aplicar máscara no telefone do modal de entrega
+        const deliveryNameInput = document.getElementById('delivery-name');
+        if (deliveryNameInput) setupNameInput(deliveryNameInput);
         const deliveryPhoneInput = document.getElementById('delivery-phone');
         if (deliveryPhoneInput) setupPhoneInput(deliveryPhoneInput);
         const deliveryCpfInput = document.getElementById('delivery-cpf');
