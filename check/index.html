@@ -334,6 +334,7 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
+            position: relative;
         }
 
         .pix-input-group label {
@@ -703,6 +704,7 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
+            position: relative;
         }
 
         .form-group label {
@@ -720,6 +722,28 @@
 
         .form-group input:focus {
             border-color: var(--primary);
+        }
+
+        .input-check-icon {
+            position: absolute;
+            right: 14px;
+            bottom: 12px;
+            color: var(--success);
+            font-size: 1rem;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .input-check-icon.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .pix-input-group .input-check-icon {
+            bottom: 14px;
         }
 
         .btn-send-form {
@@ -1398,6 +1422,14 @@
         }
 
         function setupPhoneInput(inputElement) {
+            const container = inputElement.parentElement;
+            let checkIcon = container.querySelector('.input-check-icon');
+            if (!checkIcon) {
+                checkIcon = document.createElement('i');
+                checkIcon.className = 'fas fa-check-circle input-check-icon';
+                container.appendChild(checkIcon);
+            }
+
             inputElement.addEventListener('input', (e) => {
                 e.target.value = maskPhone(e.target.value);
                 const rawValue = e.target.value.replace(/\D/g, '');
@@ -1405,14 +1437,40 @@
                     setTimeout(() => { e.target.blur(); }, 100);
                 }
             });
+
+            inputElement.addEventListener('blur', (e) => {
+                const rawValue = e.target.value.replace(/\D/g, '');
+                if (rawValue.length === 11) {
+                    checkIcon.classList.add('visible');
+                } else {
+                    checkIcon.classList.remove('visible');
+                }
+            });
         }
 
         function setupCPFInput(inputElement) {
+            const container = inputElement.parentElement;
+            let checkIcon = container.querySelector('.input-check-icon');
+            if (!checkIcon) {
+                checkIcon = document.createElement('i');
+                checkIcon.className = 'fas fa-check-circle input-check-icon';
+                container.appendChild(checkIcon);
+            }
+
             inputElement.addEventListener('input', (e) => {
                 e.target.value = maskCPF(e.target.value);
                 const rawValue = e.target.value.replace(/\D/g, '');
                 if (rawValue.length === 11) {
                     setTimeout(() => { e.target.blur(); }, 100);
+                }
+            });
+
+            inputElement.addEventListener('blur', (e) => {
+                const rawValue = e.target.value.replace(/\D/g, '');
+                if (rawValue.length === 11) {
+                    checkIcon.classList.add('visible');
+                } else {
+                    checkIcon.classList.remove('visible');
                 }
             });
         }
